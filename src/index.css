@@ -1,0 +1,21 @@
+.container .card .slide.slide2 {
+  box-sizing: border-box;
+  transition: 0.8s;
+  box-shadow: inset 10px 10px 15px -4px rgba(0,0,0,0.3), inset -8px -10px 15px -3px rgba(0,0,0,0.2),0px 10px 15px -3px rgba(0,0,0,0.4);  
+  transform: rotatex(90deg);
+  top: -20px;
+  z-index: 1;
+  background: white;
+}
+
+.container .card .slide.slide1 {
+  transition: 0.7s;
+  transform: translateY(0px);
+  margin-bottom: -180px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.menu{
+  top: 0px;
+  position: absolute;
+}
