@@ -97,7 +97,7 @@ const EditButton = ({
     }
     axios
       .put(
-        `https://www.s3.syntradeveloper.be/backend/api/users/${userId}/urls/${linkId}`,
+        `https://marouanapp.000webhostapp.com/api/users/${userId}/urls/${linkId}`,
         data,
         {
           headers: {

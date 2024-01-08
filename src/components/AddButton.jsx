@@ -80,7 +80,7 @@ const AddButton = ({
     try {
       console.log("this is tokenz" + token);
       const response = await axios.post(
-        `https://www.s3.syntradeveloper.be/backend/api/users/${userId}`,
+        `https://marouanapp.000webhostapp.com/api/users/${userId}`,
         {
           name,
           isActive: active,
@@ -164,10 +164,8 @@ const AddButton = ({
                 <Form.Label>Description:</Form.Label>
                 <Form.Control
                   as="textarea"
-
                   rows={2}
                   maxLength={40}
-
                   placeholder="Enter description..."
                   id="description"
                   name="description"

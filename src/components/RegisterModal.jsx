@@ -24,7 +24,7 @@ const RegisterModal = () => {
 
     try {
       const response = await fetch(
-        "https://www.s3.syntradeveloper.be/backend/api/register",
+        "https://marouanapp.000webhostapp.com/api/register",
         {
           method: "POST",
           headers: {
