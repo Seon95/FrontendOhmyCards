@@ -26,7 +26,7 @@ function ChangePasswordModal({ userId, token, handleClose }) {
 
     axios
       .put(
-        `https://www.s3.syntradeveloper.be/backend/api/users/${userId}/pass`,
+        `https://marouanapp.000webhostapp.com/api/users/${userId}/pass`,
         data,
         config
       )
@@ -48,8 +48,8 @@ function ChangePasswordModal({ userId, token, handleClose }) {
 
   return (
     <div>
-      <Modal 
-        show={!passwordChanged} 
+      <Modal
+        show={!passwordChanged}
         onHide={handleClose}
         style={{
           backdropFilter: "blur(5px)",
@@ -101,9 +101,7 @@ function ChangePasswordModal({ userId, token, handleClose }) {
           </Form>
           <div>{feedback}</div>
         </Modal.Body>
-        <Modal.Footer>
-
-        </Modal.Footer>
+        <Modal.Footer></Modal.Footer>
       </Modal>
     </div>
   );

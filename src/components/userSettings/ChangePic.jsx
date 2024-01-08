@@ -16,7 +16,7 @@ function ChangePic({ handleClose, userId, setImageUrl, token }) {
 
       try {
         const response = await fetch(
-          `https://www.s3.syntradeveloper.be/backend/api/users/${userId}/pic`,
+          `https://marouanapp.000webhostapp.com/api/users/${userId}/pic`,
           {
             method: "POST",
             headers: {
@@ -47,12 +47,12 @@ function ChangePic({ handleClose, userId, setImageUrl, token }) {
   };
 
   return (
-    <Modal 
-      show={true} 
+    <Modal
+      show={true}
       onHide={handleClose}
       style={{
         backdropFilter: "blur(5px)",
-      }}  
+      }}
     >
       <Modal.Header closeButton>
         <Modal.Title>Change Profile Picture</Modal.Title>
@@ -74,7 +74,7 @@ function ChangePic({ handleClose, userId, setImageUrl, token }) {
           {successMessage && (
             <div className="alert alert-success">{successMessage}</div>
           )}
-          <hr/>
+          <hr />
           <Button variant="dark" type="submit" className="me-2 w-100">
             Save
           </Button>

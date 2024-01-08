@@ -40,7 +40,7 @@ function ChangeInfo({
       }
 
       const response = await fetch(
-        `https://www.s3.syntradeveloper.be/backend/api/users/${userId}`,
+        `https://marouanapp.000webhostapp.com/api/users/${userId}`,
         {
           method: "PUT",
           headers: {
@@ -61,8 +61,8 @@ function ChangeInfo({
   };
 
   return (
-    <Modal 
-      show={true} 
+    <Modal
+      show={true}
       onHide={handleClose}
       style={{
         backdropFilter: "blur(2px)",
