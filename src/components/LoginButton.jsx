@@ -26,16 +26,13 @@ const LoginButton = ({ handleLogin }) => {
     event.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch(
-        "https://marouanapp.000webhostapp.com/api/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        }
-      );
+      const response = await fetch("https://marouansahli.website/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
       console.log("elma");
       if (response.ok) {
         const data = await response.json();

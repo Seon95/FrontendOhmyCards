@@ -40,7 +40,7 @@ function ChangeInfo({
       }
 
       const response = await fetch(
-        `https://marouanapp.000webhostapp.com/api/users/${userId}`,
+        `https://marouansahli.website/api/users/${userId}`,
         {
           method: "PUT",
           headers: {

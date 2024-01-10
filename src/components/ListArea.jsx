@@ -35,7 +35,7 @@ const ListArea = ({
     const fetchLinks = async () => {
       try {
         const response = await axios.get(
-          `https://marouanapp.000webhostapp.com/api/users/${userId}`
+          `https://marouansahli.website/api/users/${userId}`
         );
         setCards(response.data.url);
       } catch (error) {

@@ -24,7 +24,7 @@ const RegisterModal = () => {
 
     try {
       const response = await fetch(
-        "https://marouanapp.000webhostapp.com/api/register",
+        "https://marouansahli.website/api/register",
         {
           method: "POST",
           headers: {

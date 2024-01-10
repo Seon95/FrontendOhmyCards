@@ -10,7 +10,7 @@ const Header = ({ userName, userBio, userId, rerender, handleRerender }) => {
   useEffect(() => {
     const fetchUserImage = async () => {
       const response = await fetch(
-        `https://marouanapp.000webhostapp.com/api/users/${userId}/pic`
+        `https://marouansahli.website/api/users/${userId}/pic`
       );
       const blob = await response.blob();
       const imageUrl = URL.createObjectURL(blob);
