@@ -116,7 +116,7 @@ const EditButton = ({
         if (error.response && error.response.status === 400) {
           setErrorMessage("Name does not match with the domain.");
         } else {
-          setErrorMessage("An error occurred. Please try again later.");
+          setErrorMessage("An error occurred. Please try again later");
         }
       });
   };
