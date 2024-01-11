@@ -51,7 +51,7 @@ const GuestCards = ({
         >
           <div id="card-grid">
             {showGuestCards
-              .filter((card) => card.isActive === 1)
+              .filter((link) => link.isActive === 1)
               .map((link, index) => {
                 console.log(card.isActive + "activo?");
                 return (
