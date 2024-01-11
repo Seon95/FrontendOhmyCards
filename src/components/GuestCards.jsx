@@ -22,6 +22,8 @@ const GuestCards = ({
         const response = await axios.get(
           `https://marouansahli.website/api/users/${userId2}`
         );
+        console.log("test" + response);
+
         setShowGuestCards(response.data.url);
         setUserName(response.data.userName);
         setUserBio(response.data.description);
@@ -30,7 +32,6 @@ const GuestCards = ({
       }
     };
     console.log(userId2);
-    console.log("test" + response);
 
     fetchLinks2();
   }, [userId2, rerender]); // add rerender to the dependency array of useEffect
