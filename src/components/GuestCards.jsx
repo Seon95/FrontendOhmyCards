@@ -15,7 +15,7 @@ const GuestCards = ({
   const [showGuestCards, setShowGuestCards] = useState([]);
   const [userName2, setUserName] = useState("");
   const [userBio2, setUserBio] = useState("");
-
+  console.log(userId2 + "jj");
   useEffect(() => {
     const fetchLinks2 = async () => {
       try {
