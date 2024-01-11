@@ -172,10 +172,10 @@ function App() {
 
   useEffect(() => {
     Swal.fire({
-      title: "¡Bienvenido!",
-      text: "Este es un mensaje personalizado.",
+      title: "¡Welcome!",
+      text: "The project is built using React on the frontend, and the backend (API) is developed with PHP Laravel. You can share your profile with everyone, sign up, and create your profile where you can add and modify all your social media links. Additionally, you can visit other profiles without the need to register",
       icon: "info",
-      confirmButtonText: "Aceptar",
+      confirmButtonText: "Start",
     });
   }, []);
   return (
