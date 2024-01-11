@@ -9,12 +9,21 @@ const Header = ({ userName, userBio, userId, rerender, handleRerender }) => {
 
   useEffect(() => {
     const fetchUserImage = async () => {
-      const response = await fetch(
-        `https://marouansahli.website/api/users/${userId}/pic`
-      );
-      const blob = await response.blob();
-      const imageUrl = URL.createObjectURL(blob);
-      setUserImage(imageUrl);
+      try {
+        const response = await fetch(
+          `https://marouansahli.website/api/users/${userId}/pic`
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const blob = await response.blob();
+        const imageUrl = URL.createObjectURL(blob);
+        setUserImage(imageUrl);
+      } catch (error) {
+        console.error("Error fetching user image:", error);
+        // Handle the error or set a default image
+        setUserImage("/profilePicTest.png");
+      }
     };
 
     fetchUserImage();
@@ -26,22 +35,13 @@ const Header = ({ userName, userBio, userId, rerender, handleRerender }) => {
         <Row className="justify-content-center">
           <Col sm="auto">
             <Figure id="profile-pic">
-              {userImage !== null && userImage !== "" && userImage !== false ? (
-                <Figure.Image
-                  width={171}
-                  height={180}
-                  alt="171x180"
-                  src={userImage}
-                  style={{ borderRadius: "50%" }}
-                />
-              ) : (
-                <Figure.Image
-                  width={171}
-                  height={180}
-                  alt="default profile picture"
-                  src="/profilePicTest.png"
-                />
-              )}
+              <Figure.Image
+                width={171}
+                height={180}
+                alt="171x180"
+                src={userImage || "/profilePicTest.png"}
+                style={{ borderRadius: "50%" }}
+              />
               <Figure.Caption className="text-center">
                 <h1 id="username">{userName}</h1>
               </Figure.Caption>
