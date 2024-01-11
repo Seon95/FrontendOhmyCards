@@ -22,7 +22,7 @@ const GuestCards = ({
         const response = await axios.get(
           `https://marouansahli.website/api/users/${userId2}`
         );
-        console.log("test" + response);
+        console.log("test" + JSON.stringify(response.data, null, 2));
 
         setShowGuestCards(response.data.url);
         setUserName(response.data.userName);
