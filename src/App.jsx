@@ -9,6 +9,8 @@ import "./components/darkmode/darkMode.scss";
 import UserSettings from "./components/userSettings/UserSettings";
 import { Row, Container, Col, Button, Offcanvas, Stack } from "react-bootstrap";
 import { FaYoutube, FaTwitter, FaFacebook } from "react-icons/fa";
+import Swal from "sweetalert2";
+
 // import BackdropFilter from "react-backdrop-filter";
 // import { useNavigate } from "react-router-dom";
 
@@ -44,9 +46,6 @@ function App() {
   ];
   useEffect(() => {
     const currentColor = localStorage.getItem("color");
-    // setTheme(currentColor);
-
-    console.log("current color " + currentColor);
   }, []);
 
   // const setTheme = (color) => {
@@ -54,7 +53,6 @@ function App() {
   // };
   const setColor = (event) => {
     const currentColor = event.target.style.getPropertyValue("--bg-color");
-    console.log("current color " + currentColor);
 
     setNewcolor(currentColor);
 
@@ -172,6 +170,14 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    Swal.fire({
+      title: "¡Bienvenido!",
+      text: "Este es un mensaje personalizado.",
+      icon: "info",
+      confirmButtonText: "Aceptar",
+    });
+  }, []);
   return (
     <div
       style={{
@@ -283,9 +289,7 @@ function App() {
                         marginLeft: "30px",
                         marginRight: "-30px",
                       }}
-
                       src="./Offcanvas.png"
-
                       alt="Page Name"
                     />
                   </Offcanvas.Title>
