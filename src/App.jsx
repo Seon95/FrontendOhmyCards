@@ -171,25 +171,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Get the last timestamp when the popup was shown
-    const lastPopupTimestamp = localStorage.getItem("lastPopupTimestamp");
-
-    // Check if it's been at least 10 minutes since the last popup
-    if (
-      !lastPopupTimestamp ||
-      Date.now() - lastPopupTimestamp > 10 * 60 * 1000
-    ) {
-      // Show the SweetAlert
-      Swal.fire({
-        title: "¡Bienvenido!",
-        text: "Este es un mensaje personalizado.",
-        icon: "info",
-        confirmButtonText: "Aceptar",
-      });
-
-      // Update the last timestamp to the current time
-      localStorage.setItem("lastPopupTimestamp", Date.now().toString());
-    }
+    Swal.fire({
+      title: "¡Welcome!",
+      text: "The project is built using React on the frontend, and the backend (API) is developed with PHP Laravel. You can share your profile with everyone, sign up, and create your profile where you can add and modify all your social media links. Additionally, you can visit other profiles without the need to register",
+      icon: "info",
+      confirmButtonText: "Start",
+    });
   }, []);
   return (
     <div
