@@ -26,7 +26,7 @@ const Header = ({ userName, userBio, userId, rerender, handleRerender }) => {
         <Row className="justify-content-center">
           <Col sm="auto">
             <Figure id="profile-pic">
-              {userImage ? (
+              {userImage !== null && userImage !== "" && userImage !== false ? (
                 <Figure.Image
                   width={171}
                   height={180}
@@ -39,7 +39,7 @@ const Header = ({ userName, userBio, userId, rerender, handleRerender }) => {
                   width={171}
                   height={180}
                   alt="default profile picture"
-                  src="/public/profilePicTest.png"
+                  src="/profilePicTest.png"
                 />
               )}
               <Figure.Caption className="text-center">
