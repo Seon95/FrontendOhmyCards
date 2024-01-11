@@ -15,15 +15,21 @@ const Header2 = ({
 
   useEffect(() => {
     const fetchUserImage = async () => {
-      const response = await fetch(
-        `https://marouansahli.website/api/users/${userId2}/pic`
-      );
-      if (response.status === 200) {
-        const blob = await response.blob();
-        const imageUrl = URL.createObjectURL(blob);
-        setUserImage(imageUrl);
-      } else {
-        setUserImage(null);
+      try {
+        const response = await fetch(
+          `https://marouansahli.website/api/users/${userId2}/pic`
+        );
+        if (response.status === 200) {
+          const blob = await response.blob();
+          const imageUrl = URL.createObjectURL(blob);
+          setUserImage(imageUrl);
+        } else {
+          setUserImage(null);
+        }
+      } catch (error) {
+        console.error("Error fetching user image:", error);
+        // Handle the error or set a default image
+        setUserImage("/profilePicTest.png");
       }
     };
 
@@ -44,8 +50,8 @@ const Header2 = ({
                 <Figure.Image
                   width={171}
                   height={180}
-                  alt="profile picuuuture"
-                  src={userImage}
+                  alt="profile picture"
+                  src={userImage || "/profilePicTest.png"}
                   style={{ borderRadius: "50%" }}
                 />
                 <Figure.Caption className="text-center">
