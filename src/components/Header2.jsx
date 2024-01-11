@@ -24,7 +24,7 @@ const Header2 = ({
           const imageUrl = URL.createObjectURL(blob);
           setUserImage(imageUrl);
         } else {
-          setUserImage(null);
+          throw new Error("Image not found");
         }
       } catch (error) {
         console.error("Error fetching user image:", error);
@@ -36,10 +36,10 @@ const Header2 = ({
     if (userId2) {
       fetchUserImage();
     } else {
-      setUserImage(null);
+      // Set the default image when userId2 is not available
+      setUserImage("/profilePicTest.png");
     }
   }, [userId2, handleRerender]);
-  console.log("uu" + userImage);
 
   return (
     <div className="header-container">
@@ -52,7 +52,7 @@ const Header2 = ({
                   width={171}
                   height={180}
                   alt="profile picture"
-                  src={userImage || "/profilePicTest.png"}
+                  src={userImage}
                   style={{ borderRadius: "50%" }}
                 />
                 <Figure.Caption className="text-center">
