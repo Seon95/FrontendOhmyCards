@@ -22,7 +22,6 @@ const GuestCards = ({
         const response = await axios.get(
           `https://marouansahli.website/api/users/${userId2}`
         );
-        console.log("test" + JSON.stringify(response.data, null, 2));
 
         setShowGuestCards(response.data.url);
         setUserName(response.data.userName);
@@ -53,7 +52,7 @@ const GuestCards = ({
             {showGuestCards
               .filter((link) => link.isActive === 1)
               .map((link, index) => {
-                console.log(card.isActive + "activo?");
+                console.log(link.isActive + "activo?");
                 return (
                   <Col key={index} className="mb-3">
                     <GuestsFancyCards
