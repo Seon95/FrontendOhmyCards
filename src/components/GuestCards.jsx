@@ -30,6 +30,8 @@ const GuestCards = ({
       }
     };
     console.log(userId2);
+    console.log("test" + showGuestCards);
+
     fetchLinks2();
   }, [userId2, rerender]); // add rerender to the dependency array of useEffect
 
