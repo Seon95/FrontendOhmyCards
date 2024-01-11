@@ -39,6 +39,7 @@ const Header2 = ({
       setUserImage(null);
     }
   }, [userId2, handleRerender]);
+  console.log("uu" + userImage);
 
   return (
     <div className="header-container">
