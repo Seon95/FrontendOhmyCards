@@ -39,7 +39,7 @@ const Header = ({ userName, userBio, userId, rerender, handleRerender }) => {
                   width={171}
                   height={180}
                   alt="default profile picture"
-                  src="/profilePicTest.png"
+                  src="/public/profilePicTest.png"
                 />
               )}
               <Figure.Caption className="text-center">
