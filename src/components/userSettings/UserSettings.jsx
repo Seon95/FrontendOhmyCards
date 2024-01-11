@@ -116,7 +116,43 @@ function UserSettings({
         </InputGroup>
       )}
 
-      {/* ... (rest of your component) ... */}
+      {showPasswordModal && (
+        <ChangePasswordModal
+          token={token}
+          userId={userId}
+          handleClose={handleClosePasswordModal}
+        />
+      )}
+      {showPicModal && (
+        <ChangePic
+          token={token}
+          userId={userId}
+          handleClose={handleClosePicModal}
+          setImageUrl={setImageUrl}
+        />
+      )}
+      {showInfoModal && (
+        <ChangeInfo
+          token={token}
+          userId={userId}
+          handleClose={handleCloseInfoModal}
+          setUserName={setUserName}
+          setUserBio={setUserBio}
+          handleRerender={handleRerender}
+          userName={userName}
+          userBio={userBio}
+        />
+      )}
+
+      {showBackGroundModal && (
+        <BackgroundSelector
+          token={token}
+          userId={userId}
+          handleClose={handleCloseBackGroundModal}
+          setUserName={setUserName}
+          handleBackgroundChange={handleBackgroundChange}
+        />
+      )}
     </div>
   );
 }
