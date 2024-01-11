@@ -22,16 +22,15 @@ const GuestCards = ({
         const response = await axios.get(
           `https://marouansahli.website/api/users/${userId2}`
         );
-        setShowGuestCards(response.data.url);
+        setShowGuestCards(response.data); // Update this line
         setUserName(response.data.userName);
         setUserBio(response.data.description);
       } catch (error) {
         console.error(error);
       }
     };
-    console.log(userId2);
     fetchLinks2();
-  }, [userId2, rerender]); // add rerender to the dependency array of useEffect
+  }, [userId2, rerender]);
 
   return (
     <>
