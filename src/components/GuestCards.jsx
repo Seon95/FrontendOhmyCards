@@ -51,7 +51,7 @@ const GuestCards = ({
         >
           <div id="card-grid">
             {showGuestCards
-              // .filter((card) => card.isActive === 1)
+              .filter((card) => card.isActive === 1)
               .map((link, index) => {
                 return (
                   <Col key={index} className="mb-3">
