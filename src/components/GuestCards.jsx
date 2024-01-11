@@ -53,6 +53,7 @@ const GuestCards = ({
             {showGuestCards
               .filter((card) => card.isActive === 1)
               .map((link, index) => {
+                console.log(card.isActive + "activo?");
                 return (
                   <Col key={index} className="mb-3">
                     <GuestsFancyCards
