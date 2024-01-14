@@ -17,7 +17,7 @@ const Header2 = ({
     const fetchUserImage = async () => {
       try {
         const response = await fetch(
-          `https://marouansahli.website/api/users/${userId2}/pic`
+          `https://marouanapp.000webhostapp.com/api/users/${userId2}/pic`
         );
         if (response.status === 200) {
           const blob = await response.blob();

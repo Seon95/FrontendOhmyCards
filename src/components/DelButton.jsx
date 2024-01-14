@@ -15,7 +15,7 @@ const DelButton = ({ linkId, userId, token, handleRerender }) => {
   const handleDelete = async () => {
     try {
       const response = await axios.delete(
-        `https://marouansahli.website/api/users/${userId}/urls/${linkId}`,
+        `https://marouanapp.000webhostapp.com/api/users/${userId}/urls/${linkId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

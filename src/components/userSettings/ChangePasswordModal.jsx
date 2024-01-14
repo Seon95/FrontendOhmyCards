@@ -26,7 +26,7 @@ function ChangePasswordModal({ userId, token, handleClose }) {
 
     axios
       .put(
-        `https://marouansahli.website/api/users/${userId}/pass`,
+        `https://marouanapp.000webhostapp.com/api/users/${userId}/pass`,
         data,
         config
       )

@@ -80,7 +80,7 @@ const AddButton = ({
     try {
       console.log("this is tokenz" + token);
       const response = await axios.post(
-        `https://marouansahli.website/api/users/${userId}`,
+        `https://marouanapp.000webhostapp.com/api/users/${userId}`,
         {
           name,
           isActive: active,

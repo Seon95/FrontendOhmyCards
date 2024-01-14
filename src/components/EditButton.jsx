@@ -97,7 +97,7 @@ const EditButton = ({
     }
     axios
       .put(
-        `https://marouansahli.website/api/users/${userId}/urls/${linkId}`,
+        `https://marouanapp.000webhostapp.com/api/users/${userId}/urls/${linkId}`,
         data,
         {
           headers: {
