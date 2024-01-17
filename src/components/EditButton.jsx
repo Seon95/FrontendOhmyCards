@@ -27,62 +27,31 @@ const EditButton = ({
   });
   const [errorMessage, setErrorMessage] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
+  const [checkboxChecked, setCheckboxChecked] = useState(Boolean(isActive));
+
+  useEffect(() => {
+    setFormValues({
+      name: name,
+      url: url,
+      description: description,
+      isActive: Boolean(isActive),
+    });
+    setCheckboxChecked(Boolean(isActive));
+  }, [isActive, name, url, description]);
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => {
     setShowModal(false);
     setErrorMessage("");
   };
-  useEffect(() => {
-    setFormValues({
-      name: name,
-      url: url,
-      description: description,
-      isActive: Boolean(isActive),
-    });
-  }, [isActive, name, url, description]);
-
-  function handleUrlChange(e) {
-    const value = e.target.value.trim();
-    let formattedUrl = value;
-
-    // Check if the URL already contains "http://" or "https://"
-    if (!value.includes("http://") && !value.includes("https://")) {
-      formattedUrl = "https://" + value;
-    }
-
-    setFormValues({
-      ...formValues,
-      url: formattedUrl,
-    });
-  }
-  useEffect(() => {
-    setFormValues({
-      name: name,
-      url: url,
-      description: description,
-      isActive: Boolean(isActive),
-    });
-  }, [isActive, name, url, description]);
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    });
-  };
 
   const handleCheckboxChange = (event) => {
-    const { name, checked } = event.target;
+    const { checked } = event.target;
     setFormValues({
       ...formValues,
-      [name]: checked,
+      isActive: checked,
     });
-  };
-
-  const handleColorChange = (color) => {
-    setSelectedColor(color);
-    setShowDropdown(false);
+    setCheckboxChecked(checked);
   };
 
   const handleSave = () => {
@@ -153,13 +122,15 @@ const EditButton = ({
                 name="name"
                 type="text"
                 value={formValues.name}
-                onChange={handleInputChange}
+                onChange={(e) =>
+                  setFormValues({ ...formValues, name: e.target.value })
+                }
                 readOnly // added readOnly attribute
                 style={{
                   backgroundColor: "#e9ecef",
                   color: "#6c757d",
                   cursor: "not-allowed",
-                }} // added style to indicate that the field is not editable
+                }}
               />
             </Form.Group>
 
@@ -172,7 +143,9 @@ const EditButton = ({
                   name="url"
                   aria-describedby="new-addon3"
                   value={formValues.url}
-                  onChange={handleInputChange}
+                  onChange={(e) =>
+                    setFormValues({ ...formValues, url: e.target.value })
+                  }
                 />
               </InputGroup>
             </Form.Group>
@@ -180,20 +153,21 @@ const EditButton = ({
             <Form.Group className="mb-3">
               <Form.Label>Description:</Form.Label>
               <Form.Control
-                // as="textarea"
                 rows={3}
                 placeholder="Enter description..."
                 id="description"
                 name="description"
                 value={formValues.description}
-                onChange={handleInputChange}
+                onChange={(e) =>
+                  setFormValues({ ...formValues, description: e.target.value })
+                }
                 style={{ height: "100px" }}
               />
             </Form.Group>
 
             <Form.Group className="mb-3 d-flex ">
               <Form.Label className="mt-2 me-2">
-                Select a fiting color to you card:{" "}
+                Select a fitting color for your card:{" "}
               </Form.Label>
               <Dropdown
                 className="color-switcher"
@@ -229,7 +203,6 @@ const EditButton = ({
                       color={color}
                       newColor={selectedColor}
                       setSelectedColor={setSelectedColor}
-                      handleColorChange={handleColorChange}
                       style={{ backgroundColor: "transparent" }}
                     />
                   ))}
@@ -243,7 +216,7 @@ const EditButton = ({
                 id="isActive"
                 name="isActive"
                 label="Active"
-                checked={formValues.isActive}
+                checked={checkboxChecked}
                 onChange={handleCheckboxChange}
               />
             </Form.Group>
