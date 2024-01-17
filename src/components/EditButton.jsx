@@ -38,7 +38,7 @@ const EditButton = ({
       name: name,
       url: url,
       description: description,
-      isActive: Boolean(isActive),
+      isActive: isActive,
     });
   }, [isActive, name, url, description]);
 
@@ -61,7 +61,7 @@ const EditButton = ({
       name: name,
       url: url,
       description: description,
-      isActive: isActive,
+      isActive: 0,
     });
   }, [isActive, name, url, description]);
   const handleInputChange = (event) => {
@@ -74,14 +74,9 @@ const EditButton = ({
 
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
-
-    // Ensure that the checked value is a boolean
-    const isChecked =
-      typeof checked === "boolean" ? checked : checked === "true";
-
     setFormValues({
       ...formValues,
-      [name]: isChecked ? 1 : 0,
+      [name]: checked,
     });
   };
 
