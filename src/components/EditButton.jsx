@@ -23,7 +23,7 @@ const EditButton = ({
     name: name,
     url: url,
     description: description,
-    isActive: isActive === 1 || isActive === "1",
+    isActive: Boolean(isActive === 1 || isActive === "1"),
   });
   const [errorMessage, setErrorMessage] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -33,12 +33,13 @@ const EditButton = ({
     setShowModal(false);
     setErrorMessage("");
   };
+
   useEffect(() => {
     setFormValues({
       name: name,
       url: url,
       description: description,
-      isActive: isActive,
+      isActive: Boolean(isActive === 1 || isActive === "1"),
     });
   }, [isActive, name, url, description]);
 
@@ -56,14 +57,7 @@ const EditButton = ({
       url: formattedUrl,
     });
   }
-  useEffect(() => {
-    setFormValues({
-      name: name,
-      url: url,
-      description: description,
-      isActive: isActive,
-    });
-  }, [isActive, name, url, description]);
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormValues({
@@ -71,6 +65,7 @@ const EditButton = ({
       [name]: value,
     });
   };
+
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
     setFormValues({
@@ -179,7 +174,6 @@ const EditButton = ({
             <Form.Group className="mb-3">
               <Form.Label>Description:</Form.Label>
               <Form.Control
-                // as="textarea"
                 rows={3}
                 placeholder="Enter description..."
                 id="description"
@@ -192,7 +186,7 @@ const EditButton = ({
 
             <Form.Group className="mb-3 d-flex ">
               <Form.Label className="mt-2 me-2">
-                Select a fiting color to you card:{" "}
+                Select a fitting color for your card:{" "}
               </Form.Label>
               <Dropdown
                 className="color-switcher"
