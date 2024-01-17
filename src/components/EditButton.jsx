@@ -34,7 +34,7 @@ const EditButton = ({
     setErrorMessage("");
   };
   useEffect(() => {
-    console.log("isActive:", isActive);
+    console.log("isActive:", isActive, name);
 
     setFormValues({
       name: name,
