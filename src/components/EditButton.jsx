@@ -245,7 +245,7 @@ const EditButton = ({
                 id="isActive"
                 name="isActive"
                 label="Active"
-                checked={formValues.isActive}
+                checked={formValues.isActive === 1}
                 onChange={handleCheckboxChange}
               />
             </Form.Group>
