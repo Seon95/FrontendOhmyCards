@@ -23,7 +23,7 @@ const EditButton = ({
     name: name,
     url: url,
     description: description,
-    isActive: isActive,
+    isActive,
   });
   const [errorMessage, setErrorMessage] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -33,7 +33,6 @@ const EditButton = ({
     setShowModal(false);
     setErrorMessage("");
   };
-
   useEffect(() => {
     setFormValues({
       name: name,
@@ -47,6 +46,7 @@ const EditButton = ({
     const value = e.target.value.trim();
     let formattedUrl = value;
 
+    // Check if the URL already contains "http://" or "https://"
     if (!value.includes("http://") && !value.includes("https://")) {
       formattedUrl = "https://" + value;
     }
@@ -56,7 +56,14 @@ const EditButton = ({
       url: formattedUrl,
     });
   }
-
+  useEffect(() => {
+    setFormValues({
+      name: name,
+      url: url,
+      description: description,
+      isActive: isActive,
+    });
+  }, [isActive, name, url, description]);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormValues({
@@ -67,9 +74,14 @@ const EditButton = ({
 
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
+
+    // Ensure that the checked value is a boolean
+    const isChecked =
+      typeof checked === "boolean" ? checked : checked === "true";
+
     setFormValues({
       ...formValues,
-      [name]: checked,
+      [name]: isChecked ? 1 : 0, // Convert to 1 if checked, 0 if unchecked
     });
   };
 
@@ -88,7 +100,6 @@ const EditButton = ({
     if (selectedColor) {
       data.theme = selectedColor;
     }
-
     axios
       .put(
         `https://www.marouansahli.website/api/users/${userId}/urls/${linkId}`,
@@ -116,10 +127,10 @@ const EditButton = ({
   };
 
   return (
-    <div className="ms-auto">
+    <div className="ms-auto ">
       <button
         id="edit-button"
-        className="btn ms-auto"
+        className="btn  ms-auto"
         onClick={handleShowModal}
       >
         <BsPencilFill />
@@ -148,12 +159,12 @@ const EditButton = ({
                 type="text"
                 value={formValues.name}
                 onChange={handleInputChange}
-                readOnly
+                readOnly // added readOnly attribute
                 style={{
                   backgroundColor: "#e9ecef",
                   color: "#6c757d",
                   cursor: "not-allowed",
-                }}
+                }} // added style to indicate that the field is not editable
               />
             </Form.Group>
 
@@ -174,6 +185,7 @@ const EditButton = ({
             <Form.Group className="mb-3">
               <Form.Label>Description:</Form.Label>
               <Form.Control
+                // as="textarea"
                 rows={3}
                 placeholder="Enter description..."
                 id="description"
@@ -184,9 +196,9 @@ const EditButton = ({
               />
             </Form.Group>
 
-            <Form.Group className="mb-3 d-flex">
+            <Form.Group className="mb-3 d-flex ">
               <Form.Label className="mt-2 me-2">
-                Select a fitting color for your card:{" "}
+                Select a fiting color to you card:{" "}
               </Form.Label>
               <Dropdown
                 className="color-switcher"
