@@ -81,7 +81,7 @@ const EditButton = ({
 
     setFormValues({
       ...formValues,
-      [name]: isChecked ? 1 : 0, // Convert to 1 if checked, 0 if unchecked
+      [name]: isChecked ? 1 : 0,
     });
   };
 
