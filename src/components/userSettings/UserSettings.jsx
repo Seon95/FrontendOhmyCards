@@ -41,7 +41,7 @@ function UserSettings({
   };
 
   const handleShareProfileClick = () => {
-    const link = `https://marouansahli.website/${userId}`;
+    const link = `https://ohmycard.vercel.app/${userId}`;
     setProfileLink(link);
   };
 
