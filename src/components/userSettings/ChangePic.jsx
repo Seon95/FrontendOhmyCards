@@ -16,7 +16,7 @@ function ChangePic({ handleClose, userId, setImageUrl, token }) {
 
       try {
         const response = await fetch(
-          `https://marouanapp.000webhostapp.com/api/users/${userId}/pic`,
+          `https://www.marouansahli.website/api/users/${userId}/pic`,
           {
             method: "POST",
             headers: {

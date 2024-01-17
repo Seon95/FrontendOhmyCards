@@ -20,7 +20,7 @@ const GuestCards = ({
     const fetchLinks2 = async () => {
       try {
         const response = await axios.get(
-          `https://marouanapp.000webhostapp.com/api/users/${userId2}`
+          `https://www.marouansahli.website/api/users/${userId2}`
         );
         console.log("test" + JSON.stringify(response.data, null, 2));
 

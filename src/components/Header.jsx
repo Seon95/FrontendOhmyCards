@@ -11,7 +11,7 @@ const Header = ({ userName, userBio, userId, rerender, handleRerender }) => {
     const fetchUserImage = async () => {
       try {
         const response = await fetch(
-          `https://marouanapp.000webhostapp.com/api/users/${userId}/pic`
+          `https://www.marouansahli.website/api/users/${userId}/pic`
         );
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
