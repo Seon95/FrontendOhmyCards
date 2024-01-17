@@ -71,10 +71,8 @@ const EditButton = ({
       [name]: value,
     });
   };
-
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
-    console.log("Checkbox value:", checked);
     setFormValues({
       ...formValues,
       [name]: checked,
@@ -244,9 +242,7 @@ const EditButton = ({
                 id="isActive"
                 name="isActive"
                 label="Active"
-                checked={
-                  formValues.isActive === 1 || formValues.isActive === "1"
-                }
+                checked={formValues.isActive}
                 onChange={handleCheckboxChange}
               />
             </Form.Group>
