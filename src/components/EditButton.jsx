@@ -74,6 +74,7 @@ const EditButton = ({
 
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
+    console.log("Checkbox value:", checked);
     setFormValues({
       ...formValues,
       [name]: checked,
